@@ -8,12 +8,12 @@ import os
 
 app = Flask(__name__)
 CORS(app)  # Allows Cross-Origin Requests
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db'
-app.config['MAIL_SERVER'] = 'smtp.example.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'your_email@example.com'
-app.config['MAIL_PASSWORD'] = 'your_password'
-app.config['MAIL_USE_TLS'] = True
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db'
+# app.config['MAIL_SERVER'] = 'smtp.example.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USERNAME'] = 'your_email@example.com'
+# app.config['MAIL_PASSWORD'] = 'your_password'
+# app.config['MAIL_USE_TLS'] = True
 mail = Mail(app)
 db = SQLAlchemy(app)
 
