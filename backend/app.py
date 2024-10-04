@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import os
 
 app = Flask(__name__)
-CORS(app)  # Allows Cross-Origin Requests
+CORS(app) 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobs.db'
 # app.config['MAIL_SERVER'] = 'smtp.example.com'
 # app.config['MAIL_PORT'] = 587
