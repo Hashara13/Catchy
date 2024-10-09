@@ -1,19 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect  } from 'react'
 import axios from 'axios';
 
 const HomePage = () => {
   const[cv,setCV]=useState("");
   const[jd,setJD]=useState("");
   const[track,setTrack]=useState(null);
+  const [matches, setMatches] = useState([]);
 
   const handleSubmit=async (e)=>{
     e.preventDefault();
-    const response = await axios.post('http://127.0.0.1:5000/match',{
-      cv:cv,
-      jd:jd,
-    })
-    setTrack(response.data.track)
+    try{
+      const response = await axios.post('http://127.0.0.1:5000/match',{
+        cv:cv,
+        jd:jd,
+      })
+      setTrack(response.data.track)
+      fetchMatches();
+    
+    
+  }catch (error) {
+    console.error("Error submitting data:", error);
   }
+};
+
+
+
+const fetchMatches = async () => {
+  try {
+    const response = await axios.get('http://127.0.0.1:5000/matches');
+    setMatches(response.data);
+  } catch (error) {
+    console.error("Error fetching matches:", error);
+  }
+};
+
+useEffect(() => {
+  fetchMatches();
+}, []);
   return (
     <div>
       <div>
