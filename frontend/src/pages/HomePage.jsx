@@ -53,6 +53,16 @@ useEffect(() => {
         </form>
         {track && <p>Similarity Score: {track}</p>}
       </div>
+      <h2>Stored Matches</h2>
+      <ul>
+        {matches.map((match, index) => (
+          <li key={index}>
+            <p><strong>Resume:</strong> {match.resume}</p>
+            <p><strong>Job Description:</strong> {match.job_description}</p>
+            <p><strong>Similarity Score:</strong> {match.similarity_score}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
