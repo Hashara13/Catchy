@@ -15,7 +15,22 @@ const HomePage = () => {
     setTrack(response.data.track)
   }
   return (
-    <div>HomePage</div>
+    <div>
+      <div>
+        <form onSubmit={handleSubmit}>
+        <div>
+        <label>Resume Text:</label>
+        <textarea value={cv} onChange={(e) => setCV(e.target.value)} />
+      </div>
+      <div>
+        <label>Job Description:</label>
+        <textarea value={jd} onChange={(e) => setJD(e.target.value)} />
+      </div>
+      <button type="submit">Scan</button>
+        </form>
+        {track && <p>Similarity Score: {track}</p>}
+      </div>
+    </div>
   )
 }
 
